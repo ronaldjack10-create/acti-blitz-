@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a0e1a">
+<title>Trust &amp; Security · ACTI-BLITZ™ · E2Active</title>
+<meta name="description" content="How ACTI-BLITZ™ handles call data, security posture, vendor stack, and access controls during the Design Partner phase.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 350'><path d='M195 175 C155 155 78 93 35 50 C5 20 0 0 25 6 C65 14 138 66 172 118 C183 138 190 158 195 175Z' fill='%232C75FF'/><path d='M205 175 C245 155 322 93 365 50 C395 20 400 0 375 6 C335 14 262 66 228 118 C217 138 210 158 205 175Z' fill='%23FFD700'/><path d='M195 185 C163 197 86 232 44 272 C14 302 20 328 50 312 C92 291 152 245 183 210 C191 200 194 192 195 185Z' fill='%232C75FF'/><path d='M205 185 C237 197 314 232 356 272 C386 302 380 328 350 312 C308 291 248 245 217 210 C209 200 206 192 205 185Z' fill='%23FFD700'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after, em, i, address, cite, dfn, var { font-style: normal !important; }
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+:root {
+  --bg: #0a0e1a;
+  --bg-2: #11162a;
+  --bg-3: #1a1f3a;
+  --bg-card: #11162a;
+  --ink: #ffffff;
+  --ink-strong: #ffffff;
+  --ink-soft: rgba(255, 255, 255, 0.78);
+  --ink-muted: rgba(255, 255, 255, 0.55);
+  --ink-faint: rgba(255, 255, 255, 0.28);
+  --ink-line: rgba(255, 255, 255, 0.10);
+  --gold: #FFD700;
+  --gold-deep: #E6C200;
+  --gold-faded: rgba(255, 215, 0, 0.35);
+  --gold-bg: rgba(255, 215, 0, 0.06);
+  --electric: #2C75FF;
+}
+
+body {
+  background:
+    radial-gradient(1200px 600px at 80% -10%, rgba(44, 117, 255, 0.18) 0%, transparent 60%),
+    radial-gradient(900px 500px at -10% 30%, rgba(255, 215, 0, 0.06) 0%, transparent 60%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+  background-attachment: fixed;
+  color: var(--ink);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  font-weight: 400;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+::selection { background: var(--gold); color: var(--bg); }
+
+.page-header { width:100%; background:rgba(10,14,26,0.85); border-bottom:1px solid var(--ink-line); backdrop-filter:blur(20px); padding:18px 5%; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:100; }
+.page-header-logo { display:flex; align-items:center; gap:12px; text-decoration:none; }
+.page-header-wordmark { display:flex; flex-direction:column; gap:1px; }
+.phw-top { font-family:'Instrument Serif',Georgia,serif; font-weight:500; font-size:11px; color:var(--gold); line-height:1; }
+.phw-main { font-family:'Instrument Serif',Georgia,serif; font-weight:700; font-size:15px; letter-spacing:3px; color:var(--ink-strong); line-height:1; }
+.phw-main span { color:var(--electric); }
+.phw-main sup { font-size:7px; color:var(--gold); font-weight:500; vertical-align:super; }
+.back-link { font-family:'Instrument Serif',Georgia,serif; font-weight:600; font-size:9px; letter-spacing:3px; text-transform:uppercase; color:var(--ink-soft); text-decoration:none; transition:color 0.3s; }
+.back-link:hover { color:var(--gold); }
+.back-link::before { content:'← '; }
+
+.page-hero { width:100%; padding:88px 5% 40px; display:flex; flex-direction:column; align-items:center; gap:20px; text-align:center; max-width:920px; margin:0 auto; }
+.page-eyebrow { display:flex; align-items:center; gap:12px; }
+.page-eyebrow-line { width:32px; height:1px; background:var(--gold); opacity:0.6; }
+.page-eyebrow-text { font-family:'Instrument Serif',Georgia,serif; font-weight:500; font-size:9px; letter-spacing:5px; color:var(--gold); text-transform:uppercase; }
+.page-headline { font-family:'Instrument Serif',Georgia,serif; font-weight:700; font-size:clamp(36px,5vw,64px); letter-spacing:3px; color:var(--ink-strong); line-height:1.05; }
+.page-lede { font-family:'Inter',sans-serif; font-size:clamp(15px,1.5vw,18px); color:var(--ink-soft); line-height:1.7; max-width:680px; margin-top:8px; }
+
+.posture-strip { width:100%; max-width:880px; margin:24px auto 0; padding:24px 32px; background:var(--gold-bg); border:1px solid var(--gold-faded); border-radius:6px; display:flex; flex-direction:column; gap:8px; }
+.posture-label { font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:3px; text-transform:uppercase; color:var(--gold); font-weight:600; }
+.posture-body { font-family:'Inter',sans-serif; font-size:14px; color:var(--ink-soft); line-height:1.7; }
+.posture-body strong { color:var(--ink-strong); font-weight:600; }
+
+.ts-wrap { width:100%; max-width:880px; margin:0 auto; padding:48px 5% 64px; display:flex; flex-direction:column; gap:0; }
+.ts-section { padding:32px 0; border-bottom:1px solid var(--ink-line); display:flex; flex-direction:column; gap:14px; }
+.ts-section:first-child { border-top:1px solid var(--ink-line); }
+.ts-eyebrow { font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:2px; color:var(--gold); text-transform:uppercase; font-weight:600; }
+.ts-h { font-family:'Instrument Serif',Georgia,serif; font-weight:700; font-size:clamp(20px,2.2vw,24px); color:var(--ink-strong); letter-spacing:1px; line-height:1.3; }
+.ts-p { font-family:'Inter',sans-serif; font-size:15px; color:var(--ink-soft); line-height:1.85; }
+.ts-p strong { color:var(--ink-strong); font-weight:600; }
+.ts-p .gold { color:var(--gold); font-weight:500; }
+.ts-p + .ts-p { margin-top:8px; }
+.ts-list { display:grid; grid-template-columns:160px 1fr; gap:12px 20px; padding:14px 0; }
+.ts-list dt { font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:1px; color:var(--gold); font-weight:600; text-transform:uppercase; padding-top:4px; }
+.ts-list dd { font-family:'Inter',sans-serif; font-size:14px; color:var(--ink-soft); line-height:1.7; }
+.ts-list dd strong { color:var(--ink-strong); font-weight:600; }
+
+.contact-box { width:100%; max-width:880px; margin:0 auto 64px; padding:40px; background:var(--bg-card); border:1px solid var(--gold-faded); border-radius:8px; display:flex; flex-direction:column; gap:14px; align-items:center; text-align:center; }
+.contact-eyebrow { font-family:'Instrument Serif',Georgia,serif; font-weight:500; font-size:9px; letter-spacing:4px; text-transform:uppercase; color:var(--gold); }
+.contact-h { font-family:'Instrument Serif',Georgia,serif; font-weight:700; font-size:clamp(20px,2.4vw,26px); color:var(--ink-strong); letter-spacing:2px; }
+.contact-body { font-family:'Inter',sans-serif; font-size:14px; color:var(--ink-soft); line-height:1.7; max-width:560px; }
+.contact-email { font-family:'Instrument Serif',Georgia,serif; font-weight:600; font-size:18px; letter-spacing:2px; color:var(--gold); text-decoration:none; margin-top:6px; transition:color 0.3s; }
+.contact-email:hover { color:#FFE34D; }
+
+.mini-footer { width:100%; padding:32px 5%; border-top:1px solid var(--ink-line); background:var(--bg-2); display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+.mini-footer-copy { font-family:'Instrument Serif',Georgia,serif; font-weight:500; font-size:8px; letter-spacing:2px; text-transform:uppercase; color:var(--ink-muted); }
+.mini-footer-copy span { color:var(--gold); }
+.mini-footer-links { display:flex; align-items:center; gap:20px; flex-wrap:wrap; }
+.mini-footer-links a { font-family:'Instrument Serif',Georgia,serif; font-weight:500; font-size:8px; letter-spacing:2px; text-transform:uppercase; color:var(--ink-muted); text-decoration:none; transition:color 0.3s; }
+.mini-footer-links a:hover { color:var(--gold); }
+
+@media (max-width: 720px) {
+  .page-hero { padding:48px 5% 32px; }
+  .ts-wrap { padding:32px 5% 48px; }
+  .ts-section { padding:24px 0; }
+  .ts-list { grid-template-columns:1fr; gap:4px; }
+  .ts-list dt { padding-top:8px; }
+  .posture-strip { padding:20px 24px; margin:16px auto 0; }
+  .contact-box { padding:28px 20px; margin:0 16px 32px; }
+  .mini-footer { flex-direction:column; align-items:center; text-align:center; padding:24px 5%; }
+}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <a href="index.html" class="page-header-logo">
+    <div class="page-header-wordmark">
+      <span class="phw-top">The Art of Connecting</span>
+      <span class="phw-main">ACTI<span>-BLITZ</span><sup>™</sup></span>
+    </div>
+  </a>
+  <a href="index.html" class="back-link">Back to E2Active</a>
+</header>
+
+<section class="page-hero">
+  <div class="page-eyebrow">
+    <div class="page-eyebrow-line"></div>
+    <span class="page-eyebrow-text">Legal &amp; Trust</span>
+    <div class="page-eyebrow-line"></div>
+  </div>
+  <h1 class="page-headline">TRUST &amp; SECURITY</h1>
+  <p class="page-lede">How ACTI-BLITZ™ handles call data, who has access, what's stored, and what's not. Written plain. Updated as we go.</p>
+</section>
+
+<div class="posture-strip" style="max-width:880px;">
+  <span class="posture-label">Current Posture · May 2026</span>
+  <p class="posture-body">ACTI-BLITZ™ is in <strong>Design Partner Pre-Access</strong>. We are not yet SOC 2 or ISO 27001 certified — formal audit work begins during Phase 2. What follows is an honest account of how data flows through the system today, and the operational controls in place during the cohort phase. Design Partners with stricter security requirements receive a full architecture brief on NDA.</p>
+</div>
+
+<div class="ts-wrap">
+
+  <div class="ts-section">
+    <span class="ts-eyebrow">01 · Data Flow</span>
+    <h2 class="ts-h">How a call moves through ACTI-BLITZ™</h2>
+    <p class="ts-p">Audio from your live call is captured at the call layer (Zoom, Google Meet, Teams) via the ACTI-BLITZ™ Chrome extension. The audio stream is transmitted over encrypted connection to <strong>AssemblyAI</strong> for transcription with speaker diarization.</p>
+    <p class="ts-p">Transcribed text is then passed through the ACTI-BLITZ™ detection layer — <strong>Claude API</strong> for primary state analysis, <strong>Cohere Command R7B</strong> for budget routing and load distribution, and <strong>Cohere Embed 4 + Qdrant</strong> for semantic state-detection embeddings. The detection result returns to your rep's screen within the timing windows described on the <a href="faq.html" style="color:var(--gold);text-decoration:none;">FAQ page</a>.</p>
+    <p class="ts-p"><span class="gold">No call audio is stored long-term during the Design Partner phase.</span> Transcripts are retained only for the duration of an active session unless a Design Partner explicitly opts in to extended retention for product improvement.</p>
+  </div>
+
+  <div class="ts-section">
+    <span class="ts-eyebrow">02 · Vendor Stack</span>
+    <h2 class="ts-h">Who we use, what they touch, where they sit</h2>
+    <dl class="ts-list">
+      <dt>AssemblyAI</dt>
+      <dd><strong>Speech-to-text transcription.</strong> Audio passes through; transcripts return. SOC 2 Type II. HIPAA-eligible architecture.</dd>
+      <dt>Anthropic Claude</dt>
+      <dd><strong>Primary state detection.</strong> Receives transcribed text only — no audio. Anthropic's enterprise data policy prohibits training on customer API inputs by default.</dd>
+      <dt>Cohere</dt>
+      <dd><strong>Budget routing &amp; embeddings.</strong> Command R7B for load distribution, Embed 4 for semantic vectors. Enterprise data controls.</dd>
+      <dt>Qdrant</dt>
+      <dd><strong>Vector database.</strong> Stores embedding vectors for state detection — not raw transcripts. Self-hosted on E2Active infrastructure during Phase 1.</dd>
+      <dt>Netlify</dt>
+      <dd><strong>Frontend &amp; static hosting.</strong> Marketing site and Chrome extension distribution. SOC 2 Type II.</dd>
+    </dl>
+    <p class="ts-p">Each vendor is selected because they meet or exceed the security posture we'd hold ourselves to as the platform matures. Vendor changes during the Design Partner phase are communicated to partners in advance.</p>
+  </div>
+
+  <div class="ts-section">
+    <span class="ts-eyebrow">03 · Access Control</span>
+    <h2 class="ts-h">Who at E2Active can see your data</h2>
+    <p class="ts-p"><strong>Production data access is restricted to Ron Magic Jackson.</strong> No external contractors have production access during Phase 1. Engineering access is granted only to named technical partners under written agreement, with audit logging on all production reads.</p>
+    <p class="ts-p">Cohort partners can request a full access-control review at any time. Email <a href="mailto:info@e2active.com" style="color:var(--gold);text-decoration:none;">info@e2active.com</a>.</p>
+  </div>
+
+  <div class="ts-section">
+    <span class="ts-eyebrow">04 · Retention &amp; Deletion</span>
+    <h2 class="ts-h">What we keep, what we drop, what you can request</h2>
+    <dl class="ts-list">
+      <dt>Call audio</dt>
+      <dd><strong>Not retained.</strong> Processed in-flight by AssemblyAI; not stored on ACTI-BLITZ™ infrastructure.</dd>
+      <dt>Transcripts</dt>
+      <dd><strong>Active session only,</strong> unless Design Partner opts in to extended retention. Default deletion at session end.</dd>
+      <dt>State detection vectors</dt>
+      <dd><strong>Retained anonymized</strong> for system improvement during the cohort phase. No mapping back to call content.</dd>
+      <dt>Account &amp; billing</dt>
+      <dd><strong>Retained per US tax/financial recordkeeping requirements.</strong></dd>
+      <dt>Deletion requests</dt>
+      <dd><strong>Honored within 30 days</strong> of written request to <a href="mailto:info@e2active.com" style="color:var(--gold);text-decoration:none;">info@e2active.com</a>. Anonymized aggregate metrics may remain.</dd>
+    </dl>
+  </div>
+
+  <div class="ts-section">
+    <span class="ts-eyebrow">05 · Encryption</span>
+    <h2 class="ts-h">How data is protected in transit and at rest</h2>
+    <p class="ts-p">All data transmitted between the client, the ACTI-BLITZ™ application layer, and vendor APIs is encrypted in transit using <strong>TLS 1.3</strong>. Data at rest in Qdrant and operational databases is encrypted using <strong>AES-256</strong>. API credentials and secrets are managed in encrypted secret stores, never committed to source.</p>
+  </div>
+
+  <div class="ts-section">
+    <span class="ts-eyebrow">06 · Compliance Posture</span>
+    <h2 class="ts-h">Where we are, where we're going</h2>
+    <dl class="ts-list">
+      <dt>SOC 2 Type II</dt>
+      <dd><strong>Audit prep begins Phase 2.</strong> Vendor stack is already SOC 2–aligned. Certification target: within 12 months of GA.</dd>
+      <dt>GDPR</dt>
+      <dd><strong>Data subject rights honored on request.</strong> Formal DPA template available to Design Partners on request.</dd>
+      <dt>HIPAA</dt>
+      <dd><strong>Not currently HIPAA-targeted.</strong> ACTI-BLITZ™ is built for B2B sales conversations, not protected health information.</dd>
+      <dt>CCPA</dt>
+      <dd><strong>Honored for California residents</strong> per applicable state law.</dd>
+    </dl>
+    <p class="ts-p">We will not claim certifications we don't hold. As compliance milestones are reached, this page is updated with the date and the auditor.</p>
+  </div>
+
+  <div class="ts-section">
+    <span class="ts-eyebrow">07 · Incident Response</span>
+    <h2 class="ts-h">If something goes wrong</h2>
+    <p class="ts-p">In the event of a security incident affecting Design Partner data, affected partners are notified <strong>within 72 hours</strong> of incident discovery, with details on scope, remediation, and any actions required on the partner's side. This commitment is in writing in the Design Partner agreement.</p>
+  </div>
+
+  <div class="ts-section">
+    <span class="ts-eyebrow">08 · Architecture Brief</span>
+    <h2 class="ts-h">For deeper diligence</h2>
+    <p class="ts-p">Design Partners — and prospective partners under NDA — receive the full <strong>ACTI-BLITZ™ Technical Architecture Brief</strong> on request. It covers the complete data-flow diagram, vendor agreements, model selection rationale, infrastructure topology, and the Phase 1 → Phase 2 → Phase 3 security roadmap.</p>
+    <p class="ts-p">To request the brief: email <a href="mailto:info@e2active.com" style="color:var(--gold);text-decoration:none;">info@e2active.com</a> with subject line "Architecture Brief Request." Ron sends a mutual NDA, you countersign, you get the document.</p>
+  </div>
+
+</div>
+
+<div class="contact-box">
+  <span class="contact-eyebrow">Security Questions</span>
+  <h2 class="contact-h">Talk to Ron directly</h2>
+  <p class="contact-body">Anything not answered above — anything you'd ask in a vendor security review — comes straight to the founder. No support queue. No security-theater form. Email goes to Ron's inbox.</p>
+  <a href="mailto:info@e2active.com" class="contact-email">info@e2active.com</a>
+</div>
+
+<footer class="mini-footer">
+  <p class="mini-footer-copy">© 2026 <span>E2Active</span> · ACTI-BLITZ™ · Ron Magic Jackson · Port St. Lucie, Florida</p>
+  <div class="mini-footer-links">
+    <a href="index.html">Home</a>
+    <a href="faq.html">FAQ</a>
+    <a href="mailto:info@e2active.com">Contact</a>
+  </div>
+</footer>
+
+</body>
+</html>

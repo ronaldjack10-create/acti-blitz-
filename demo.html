@@ -3,44 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ACTI-BLITZ™ — Perception layer for live B2B sales calls</title>
-    <meta name="description" content="ACTI-BLITZ catches the four buyer-psychology states that decide whether a great demo closes — or becomes another no-decision loss. Built for B2B SaaS founders who are still the primary closer.">
-    <meta property="og:title" content="ACTI-BLITZ™ — Perception layer for live B2B sales calls">
-    <meta property="og:description" content="The four buyer-psychology states that decide whether a great demo closes — or becomes another no-decision loss.">
+    <title>ACTI-BLITZ™ · Perception layer for live B2B sales calls</title>
+    <meta name="description" content="ACTI-BLITZ catches the four buyer-psychology states that decide whether a great demo closes, or becomes another no-decision loss. Built for B2B SaaS founders who are still the primary closer.">
+    <meta property="og:title" content="ACTI-BLITZ™ · Perception layer for live B2B sales calls">
+    <meta property="og:description" content="The four buyer-psychology states that decide whether a great demo closes, or becomes another no-decision loss.">
     <meta property="og:type" content="website">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎯</text></svg>">
 
     <!--
       ============================================================
-      ACTI-BLITZ V3 — DEPLOYMENT NOTES
+      ACTI-BLITZ V3.2 — DEPLOYMENT NOTES
       ============================================================
-      Updated: May 2026
+      Updated: May 20, 2026
       Conviction layer: locked April 2026
-      Cohort: 12 seats, $1,200, May 28, 2026 start
-      GA anchor: $300/seat/month (signaled, not committed publicly elsewhere)
+      Offer rebuild: May 19, 2026 · Charter rebuild: May 20, 2026
+
+      THE CHARTER TWELVE (locked May 20, 2026):
+      - 12 seats. $5,000 one-time. Months 1–10 prepaid.
+      - $500/seat/month locked from month 11 forward.
+      - GA pricing NEVER applies to the Charter Twelve.
+      - Charter opens August 2026 (closes August 1, 2026
+        or when full, whichever comes first).
+      - One seat per Charter member. Additional seats =
+        standard pricing.
+      - 30-day guarantee: one detected state shift you would
+        have missed, or full refund. They keep the extension.
 
       THINGS TO SWAP AS THE WORK PROGRESSES:
       1. Founder photo: Drop "ron-jackson.jpg" in repo root. The
          <img> auto-displays; the SVG placeholder hides itself.
       2. Seat counter: Update [data-seat-counter] elements (search
-         the file) as cohort fills. There are 2 placements: hero
+         the file) as the Charter fills. Two placements: hero
          scarcity strip + offer section.
       3. NDA brief email: mailto link points to ron@e2active.com.
-         Change if a different inbox handles brief requests.
       4. Stripe link: https://buy.stripe.com/9B68wR5D8fj2fgPdKb8ww01
-         (carried from prior Stage 2 deployment).
-      5. Formspree waitlist: form ID meopepal (carried from
-         e2active.com brand site).
+      5. Formspree waitlist: form ID meopepal.
 
       BRAND RULES ENFORCED IN THIS FILE:
-      - Yellow/gold (#FFD700) appears on hero CTA, scarcity strip,
-        section breaks, mechanism numbers, offer accents.
+      - Yellow/gold (#FFD700) on hero CTA, scarcity, section
+        breaks, mechanism numbers, offer accents.
       - NO butterfly. (Butterfly stays at e2active.com only.)
       - Bridge line: "ACTI-BLITZ™ is the bridge between Human
         Intuition and Machine Intelligence." (italic, hero close)
       - Tagline: "Perception. Psychology. Success from the inside."
-        (section break between hero and mechanism, three-line set)
       - "Ron Jackson" — operator name on this site.
+      - "Charter Twelve" — the named class. "Design Partners" —
+        the role inside the class. Never just "Magic Jackson."
       ============================================================
     -->
 
@@ -1185,7 +1193,7 @@
         }
 
         .offer-includes {
-            margin-bottom: 32px;
+            margin-bottom: 24px;
         }
         .offer-includes-label {
             font-family: var(--mono);
@@ -1200,11 +1208,12 @@
         .offer-includes li {
             font-size: 14.5px;
             color: var(--ink-soft);
-            padding: 10px 0;
+            padding: 11px 0;
             border-bottom: 1px solid var(--line);
             display: flex;
             gap: 12px;
-            line-height: 1.55;
+            align-items: baseline;
+            line-height: 1.5;
         }
         .offer-includes li:last-child { border-bottom: none; }
         .offer-includes li::before {
@@ -1212,6 +1221,93 @@
             color: var(--gold);
             font-weight: 700;
             flex: 0 0 auto;
+        }
+        .offer-includes li .item-text {
+            flex: 1;
+            min-width: 0;
+        }
+        .offer-includes li .item-value {
+            font-family: var(--mono);
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: 0.02em;
+            text-align: right;
+            flex: 0 0 auto;
+            white-space: nowrap;
+        }
+        .offer-includes li .item-value.soft {
+            color: var(--ink-mute);
+            font-weight: 500;
+            font-style: italic;
+        }
+
+        /* Value summary callout — total stack vs. price */
+        .offer-value-total {
+            margin-bottom: 24px;
+            padding: 20px 22px;
+            background: var(--gold-soft);
+            border: 1px solid var(--gold-line);
+            border-radius: 12px;
+        }
+        .offer-value-total .row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 4px 0;
+            font-size: 14px;
+            color: var(--ink-soft);
+        }
+        .offer-value-total .row .v {
+            font-family: var(--mono);
+            font-weight: 700;
+            color: var(--ink);
+        }
+        .offer-value-total .row.headline {
+            font-size: 15px;
+            border-bottom: 1px solid var(--gold-line);
+            padding-bottom: 10px;
+            margin-bottom: 6px;
+        }
+        .offer-value-total .row.headline .v {
+            color: var(--gold);
+            font-size: 18px;
+        }
+        .offer-value-total .row.net {
+            padding-top: 8px;
+            border-top: 1px solid var(--gold-line);
+            margin-top: 6px;
+            color: var(--ink);
+            font-weight: 600;
+        }
+        .offer-value-total .row.net .v {
+            color: var(--gold);
+        }
+
+        /* Commitment frame — replaces refund guarantee */
+        .offer-commitment {
+            margin-bottom: 22px;
+            padding: 18px 22px;
+            border-left: 3px solid var(--gold);
+            background: rgba(255, 215, 0, 0.04);
+            border-radius: 0 8px 8px 0;
+        }
+        .offer-commitment .head {
+            font-family: var(--mono);
+            font-size: 10.5px;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+        .offer-commitment p {
+            font-size: 14px;
+            color: var(--ink-soft);
+            line-height: 1.55;
+        }
+        .offer-commitment strong {
+            color: var(--ink);
         }
 
         .offer-cta {
@@ -1238,6 +1334,198 @@
             font-size: 12.5px;
             color: var(--ink-mute);
             line-height: 1.6;
+        }
+
+        /* =========================================================
+           INTERSECTION — Control + Outcome / Human × Machine
+           ========================================================= */
+        .wins-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-bottom: clamp(56px, 7vw, 88px);
+        }
+        @media (max-width: 720px) {
+            .wins-grid { grid-template-columns: 1fr; gap: 12px; }
+        }
+        .win {
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            padding: 22px 24px;
+            background: rgba(255, 255, 255, 0.025);
+            border: 1px solid var(--line);
+            border-radius: var(--r-md);
+            transition: border-color 0.25s ease;
+        }
+        .win:hover { border-color: var(--gold-line); }
+        .win-num {
+            font-family: var(--mono);
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 0.12em;
+            flex: 0 0 auto;
+            padding-top: 3px;
+        }
+        .win-text {
+            font-size: 15.5px;
+            line-height: 1.55;
+            color: var(--ink);
+            font-weight: 500;
+        }
+
+        .intersection-table {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.035) 0%, rgba(255, 255, 255, 0.015) 100%);
+            border: 1px solid var(--line-strong);
+            border-radius: var(--r-lg);
+            overflow: hidden;
+            margin-bottom: clamp(40px, 5vw, 56px);
+        }
+        .ix-head {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 0;
+            background: linear-gradient(90deg, rgba(44, 117, 255, 0.10), rgba(255, 215, 0, 0.10));
+            padding: 22px 24px;
+            border-bottom: 1px solid var(--line-strong);
+        }
+        .ix-col-label {
+            font-family: var(--sans);
+            font-weight: 800;
+            font-size: clamp(15px, 1.6vw, 18px);
+            color: var(--ink);
+            letter-spacing: -0.005em;
+        }
+        .ix-col-label:last-child { text-align: right; }
+        .ix-col-label span {
+            display: block;
+            font-family: var(--mono);
+            font-weight: 500;
+            font-size: 11px;
+            color: var(--ink-mute);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-top: 4px;
+        }
+        .ix-vs {
+            font-family: var(--serif);
+            font-size: 28px;
+            font-style: italic;
+            color: var(--gold);
+            padding: 0 18px;
+            line-height: 1;
+        }
+        .ix-row {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: stretch;
+            border-bottom: 1px solid var(--line);
+        }
+        .ix-row:last-child { border-bottom: none; }
+        .ix-cell {
+            padding: 18px 24px;
+            font-size: 14.5px;
+            line-height: 1.55;
+            color: var(--ink);
+        }
+        .ix-cell.human {
+            border-right: 1px solid var(--line);
+        }
+        .ix-cell.machine {
+            background: rgba(255, 215, 0, 0.025);
+            color: var(--ink-soft);
+            text-align: right;
+            border-left: 1px solid var(--line);
+        }
+        .ix-divider {
+            width: 1px;
+            background: var(--line-strong);
+            justify-self: center;
+        }
+        @media (max-width: 720px) {
+            .ix-head { grid-template-columns: 1fr; gap: 8px; text-align: left; padding: 18px 20px; }
+            .ix-col-label:last-child { text-align: left; }
+            .ix-vs { display: none; }
+            .ix-row { grid-template-columns: 1fr; }
+            .ix-cell { padding: 14px 20px; }
+            .ix-cell.human {
+                border-right: none;
+                border-bottom: 1px dashed var(--line);
+            }
+            .ix-cell.machine {
+                text-align: left;
+                border-left: none;
+            }
+            .ix-divider { display: none; }
+        }
+
+        .intersection-quote {
+            font-family: var(--serif);
+            font-size: clamp(20px, 2.4vw, 28px);
+            line-height: 1.4;
+            color: var(--ink);
+            text-align: center;
+            max-width: 880px;
+            margin: 0 auto;
+            letter-spacing: -0.005em;
+        }
+        .intersection-quote em {
+            font-style: italic;
+            color: var(--gold);
+        }
+
+        /* =========================================================
+           OFFER — GUARANTEE BLOCK (new, paired with filter line)
+           ========================================================= */
+        .offer-guarantee {
+            margin-bottom: 18px;
+            padding: 22px 24px;
+            border: 1px solid var(--gold-line);
+            background:
+                radial-gradient(400px 200px at 0% 0%, rgba(255, 215, 0, 0.08) 0%, transparent 60%),
+                rgba(255, 215, 0, 0.04);
+            border-radius: 12px;
+            position: relative;
+        }
+        .offer-guarantee .head {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--mono);
+            font-size: 10.5px;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+        .offer-guarantee .head::before {
+            content: '';
+            width: 8px; height: 8px;
+            background: var(--gold);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--gold);
+        }
+        .offer-guarantee .promise {
+            font-family: var(--serif);
+            font-size: clamp(20px, 2.2vw, 26px);
+            line-height: 1.35;
+            color: var(--ink);
+            margin-bottom: 10px;
+            letter-spacing: -0.005em;
+        }
+        .offer-guarantee .promise strong {
+            color: var(--gold);
+            font-style: italic;
+        }
+        .offer-guarantee .terms {
+            font-size: 13.5px;
+            color: var(--ink-soft);
+            line-height: 1.55;
+            font-family: var(--mono);
+            letter-spacing: 0.01em;
         }
 
         /* =========================================================
@@ -1401,7 +1689,7 @@
                 </h1>
 
                 <p class="lede hero-lede">
-                    ACTI-BLITZ catches the four buyer-psychology states that decide whether a great demo closes — or becomes another no-decision loss. Built for B2B SaaS founders who are still the primary closer.
+                    <strong style="color:var(--ink); font-weight:600;">ACTI-BLITZ gives founders and closers machine superpowers:</strong> real-time buyer psychology detection. Without ever pretending to close for you. You stay in control. You close the deal. That's the intersection.
                 </p>
 
                 <!-- Founder presence: photo + quote (recognition before credentials) -->
@@ -1422,14 +1710,14 @@
                     </div>
                     <div class="founder-meta">
                         <div class="founder-quote">I've been on the call where the deal died. So has every founder I built this for.</div>
-                        <div class="founder-name">Ron Jackson — Founder, ACTI-BLITZ</div>
+                        <div class="founder-name">Ron Jackson, Founder, ACTI-BLITZ</div>
                     </div>
                 </div>
 
                 <!-- Two CTAs, two paths -->
                 <div class="cta-cluster">
                     <a class="btn btn-primary" href="#offer">
-                        Become a Design Partner — $1,200
+                        Claim a Charter Seat · $5,000
                     </a>
                     <a class="btn btn-ghost" href="#waitlist">
                         Join the waitlist
@@ -1440,10 +1728,10 @@
                 <div class="scarcity">
                     <span class="pulse" aria-hidden="true"></span>
                     <span>
-                        Founding cohort:
+                        The Charter Twelve:
                         <strong data-seat-counter>12</strong> of 12 seats remaining
                         <span style="color:var(--ink-mute);">·</span>
-                        Cohort starts May 28, 2026
+                        Charter opens August 2026
                     </span>
                 </div>
             </div>
@@ -1509,6 +1797,76 @@
 </div>
 
 <!-- =========================================================
+     INTERSECTION — Control + Outcome / Human × Machine
+     New section (May 20, 2026). The ICP frame in product form.
+     Sits between the tagline and the four-state mechanism.
+     ========================================================= -->
+<section id="intersection">
+    <div class="wrap">
+        <header class="section-head">
+            <span class="eyebrow">What you actually want</span>
+            <h2 class="h-display h2">Control. Outcome. In that order.</h2>
+            <p class="lede">
+                You don't want a robot closer. You want superhuman perception that feeds your intuition. Not replaces it. ACTI-BLITZ sees what humans cannot, then gets out of the way.
+            </p>
+        </header>
+
+        <div class="wins-grid">
+            <div class="win">
+                <span class="win-num">01</span>
+                <p class="win-text">Winning deals you should win. And knowing why.</p>
+            </div>
+            <div class="win">
+                <span class="win-num">02</span>
+                <p class="win-text">Not losing deals you can't explain. The quiet deaths.</p>
+            </div>
+            <div class="win">
+                <span class="win-num">03</span>
+                <p class="win-text">Keeping your best closers closing. Not babysitting AI.</p>
+            </div>
+            <div class="win">
+                <span class="win-num">04</span>
+                <p class="win-text">Human judgment remaining final. Because the signature is human.</p>
+            </div>
+        </div>
+
+        <div class="intersection-table" role="table" aria-label="Where ACTI-BLITZ lives — the intersection of human intuition and machine intelligence">
+            <div class="ix-head" role="row">
+                <div class="ix-col-label" role="columnheader">
+                    Human Intuition
+                    <span>The closer · You</span>
+                </div>
+                <div class="ix-vs" aria-hidden="true">×</div>
+                <div class="ix-col-label" role="columnheader">
+                    Machine Intelligence
+                    <span>ACTI-BLITZ</span>
+                </div>
+            </div>
+            <div class="ix-row" role="row">
+                <div class="ix-cell human" role="cell">Reads emotion. Builds rapport.</div>
+                <div class="ix-cell machine" role="cell">Detects linguistic state shifts.</div>
+            </div>
+            <div class="ix-row" role="row">
+                <div class="ix-cell human" role="cell">Decides when to push. When to pause.</div>
+                <div class="ix-cell machine" role="cell">Alerts without interrupting.</div>
+            </div>
+            <div class="ix-row" role="row">
+                <div class="ix-cell human" role="cell">Owns the relationship.</div>
+                <div class="ix-cell machine" role="cell">Owns the pattern recognition.</div>
+            </div>
+            <div class="ix-row" role="row">
+                <div class="ix-cell human" role="cell">Closes the deal.</div>
+                <div class="ix-cell machine" role="cell">Provides the perception layer.</div>
+            </div>
+        </div>
+
+        <p class="intersection-quote">
+            ACTI-BLITZ gives founders and closers machine superpowers: real-time buyer psychology detection. <em>Without ever pretending to close for them.</em>
+        </p>
+    </div>
+</section>
+
+<!-- =========================================================
      MECHANISM — FOUR BUYER STATES
      The taxonomy doing the proof work.
      ========================================================= -->
@@ -1518,7 +1876,7 @@
             <span class="eyebrow">The mechanism</span>
             <h2 class="h-display h2">The four states that decide your demo.</h2>
             <p class="lede">
-                ACTI-BLITZ runs all four detectors continuously during a live call. When a state surfaces, the rep sees what the buyer is actually doing — and the response that fits the moment.
+                ACTI-BLITZ runs all four detectors continuously during a live call. When a state surfaces, the rep sees what the buyer is actually doing. And the response that fits the moment.
             </p>
         </header>
 
@@ -1582,7 +1940,7 @@
             <article class="state-card">
                 <span class="state-num">04 · STATE</span>
                 <h3 class="state-name h-display">Self-Protection Mode</h3>
-                <p class="state-def">The buyer is protecting themselves from a bad bet — not evaluating yours.</p>
+                <p class="state-def">The buyer is protecting themselves from a bad bet. Not evaluating yours.</p>
 
                 <div class="state-block">
                     <span class="state-label">Signal</span>
@@ -1592,7 +1950,7 @@
                 </div>
 
                 <p class="state-why">
-                    This is where great demos become quiet inboxes. The buyer isn't stalling — <strong>they're hiding from the decision.</strong>
+                    This is where great demos become quiet inboxes. The buyer isn't stalling. <strong>They're hiding from the decision.</strong>
                 </p>
             </article>
 
@@ -1612,7 +1970,7 @@
                 <span class="eyebrow">The demonstration</span>
                 <h2 class="h-display h2">Watch one state surface.</h2>
                 <p class="lede">
-                    Sarah Chen, VP of Operations at TechCorp. Sixty-second simulation. One of the four states surfaces. The rep gets the signal — and the response that fits.
+                    Sarah Chen, VP of Operations at TechCorp. Sixty-second simulation. One of the four states surfaces. The rep gets the signal. And the response that fits.
                 </p>
             </header>
 
@@ -1684,12 +2042,12 @@
             <!-- Post-demo summary (operator-language, no ROI claims) -->
             <div class="demo-summary" id="demoSummary">
                 <p>
-                    <strong style="color:var(--ink);">What you saw:</strong> one state surfaced, one signal fired, one closing line generated. The rep stays in the conversation — not selling at it.
+                    <strong style="color:var(--ink);">What you saw:</strong> one state surfaced, one signal fired, one closing line generated. The rep stays in the conversation. Not selling at it.
                 </p>
                 <p>
-                    ACTI-BLITZ runs four detectors. Continuously. The simulator shows one of them. The cohort builds the rest.
+                    ACTI-BLITZ runs four detectors. Continuously. The simulator shows one of them. The Charter Twelve builds the rest.
                 </p>
-                <a href="#offer" class="nudge">See the cohort offer →</a>
+                <a href="#offer" class="nudge">See the Charter offer →</a>
             </div>
         </div>
     </section>
@@ -1706,7 +2064,7 @@
             <span class="eyebrow">Why this exists. Why it works.</span>
             <h2 class="h-display h2">Operator receipts.<br>Not theory.</h2>
             <p class="lede">
-                Three things you can verify before you decide. The fourth — the taxonomy itself — you just read.
+                Three things you can verify before you decide. The fourth, the taxonomy itself, you just read.
             </p>
         </header>
 
@@ -1716,7 +2074,7 @@
                 <span class="proof-num">01 · EARNED AUTHORITY</span>
                 <h3 class="proof-title h-display">Twenty years on the call.</h3>
                 <p class="proof-body">
-                    Ron Jackson has been the primary closer on B2B deals at $5K to $50K ACV for two decades. Three books on sales method. ACTI-BLITZ is the codification of patterns earned at that desk — not theory imported from a research deck.
+                    Ron Jackson has been the primary closer on B2B deals at $5K to $50K ACV for two decades. Three books on sales method. ACTI-BLITZ is the codification of patterns earned at that desk. Not theory imported from a research deck.
                 </p>
             </article>
 
@@ -1724,7 +2082,7 @@
                 <span class="proof-num">02 · OPERATOR TRACK RECORD</span>
                 <h3 class="proof-title h-display">Watch the work in public.</h3>
                 <p class="proof-body">
-                    Ninety days of operator content on LinkedIn — Klarna case-study reads, the Robert Wagner deal post-mortem, the Supersonik competitive position. Three posts a week. Walk the timeline before you commit.
+                    Ninety days of operator content on LinkedIn. Klarna case-study reads, the Robert Wagner deal post-mortem, the Supersonik competitive position. Three posts a week. Walk the timeline before you commit.
                 </p>
                 <a class="proof-link"
                    href="https://www.linkedin.com/in/ronaldjackson10/"
@@ -1738,7 +2096,7 @@
                 <span class="proof-num">03 · ARCHITECTURE</span>
                 <h3 class="proof-title h-display">The build is documented.</h3>
                 <p class="proof-body">
-                    The technical architecture brief — vector database selection, RAG guardrails, anti-hallucination protocols, compliance scope — is available to qualified design partners and technical evaluators under NDA. Requestable, not a gated download.
+                    The technical architecture brief covers vector database selection, RAG guardrails, anti-hallucination protocols, and compliance scope. Available to qualified design partners and technical evaluators under NDA. Requestable, not a gated download.
                 </p>
                 <a class="proof-link"
                    href="mailto:ron@e2active.com?subject=ACTI-BLITZ%20Technical%20Architecture%20Brief%20%E2%80%94%20NDA%20Request&body=Hi%20Ron%2C%0A%0AI%27d%20like%20to%20review%20the%20ACTI-BLITZ%20technical%20architecture%20brief%20under%20NDA.%0A%0AContext%3A%0A-%20Role%2FCompany%3A%20%0A-%20What%20I%27m%20evaluating%3A%20%0A%0AThanks.">
@@ -1758,28 +2116,28 @@
         <div class="wrap">
             <div class="offer-card">
                 <span class="eyebrow offer-eyebrow">The offer</span>
-                <h2 class="h-display h2 offer-title">Design Partner Pre-Access.</h2>
+                <h2 class="h-display h2 offer-title">The Charter Twelve.</h2>
                 <p class="offer-sub">
-                    Twelve seats. Founding cohort. Cohort starts May 28, 2026. Founding terms are locked — GA pricing does not apply to design partners.
+                    Twelve seats. The founding class. The Charter opens August 2026. Founding terms are locked. GA pricing never applies to the Charter Twelve. $5,000 covers your first ten months. From month eleven, $500/seat/month, locked for the life of the seat.
                 </p>
 
                 <div class="offer-pricing">
                     <div>
-                        <div class="label">Founding cohort</div>
-                        <div class="price gold">$1,200</div>
-                        <div class="price-sub">One-time. Phase 1 design-partner price.</div>
+                        <div class="label">Charter price</div>
+                        <div class="price gold">$5,000</div>
+                        <div class="price-sub">One-time. Covers months 1–10. Phase 1 access.</div>
                     </div>
                     <div>
-                        <div class="label">After the cohort</div>
-                        <div class="price">$300<span style="font-size:18px;color:var(--ink-mute);">/seat/mo</span></div>
-                        <div class="price-sub">General Access anchor. Founding cohort never moves to GA pricing.</div>
+                        <div class="label">From month 11 forward</div>
+                        <div class="price">$500<span style="font-size:18px;color:var(--ink-mute);">/seat/mo</span></div>
+                        <div class="price-sub">Locked for the life of the seat. GA pricing never applies to the Charter Twelve.</div>
                     </div>
                 </div>
 
                 <div class="offer-meta">
                     <div class="offer-meta-item">
                         <span class="glyph">·</span>
-                        <span>Cohort starts <strong style="color:var(--ink);">May 28, 2026</strong></span>
+                        <span>Charter opens <strong style="color:var(--ink);">August 2026</strong></span>
                     </div>
                     <div class="offer-meta-item">
                         <span class="glyph">·</span>
@@ -1787,30 +2145,95 @@
                     </div>
                     <div class="offer-meta-item">
                         <span class="glyph">·</span>
-                        <span>Phase 1 access — <strong style="color:var(--ink);">Chrome extension MVP</strong></span>
+                        <span>Phase 1 access. <strong style="color:var(--ink);">Chrome extension MVP</strong></span>
                     </div>
                 </div>
 
                 <div class="offer-includes">
-                    <div class="offer-includes-label">What design partners get</div>
+                    <div class="offer-includes-label">What the Charter Twelve get</div>
                     <ul>
-                        <li>Direct access to Ron Jackson during the cohort window</li>
-                        <li>Phase 1 product access — Chrome extension MVP, four-state detection</li>
-                        <li>Influence over the detection roadmap before Phase 2 ships</li>
-                        <li>Locked-in founding terms — GA pricing never applies to your seat</li>
-                        <li>Confidential channel for issues, signals, and tuning requests</li>
+                        <li>
+                            <span class="item-text"><strong style="color:var(--ink);">Charter pricing locked for life.</strong> GA pricing never applies to your seat.</span>
+                            <span class="item-value">$24,000+</span>
+                        </li>
+                        <li>
+                            <span class="item-text"><strong style="color:var(--ink);">Early Access.</strong> Phase 1 product, Chrome extension MVP, four-state detection.</span>
+                            <span class="item-value">$6,000</span>
+                        </li>
+                        <li>
+                            <span class="item-text"><strong style="color:var(--ink);">Direct founder collaboration</strong> with Ron Jackson during the Charter window</span>
+                            <span class="item-value">$5,000</span>
+                        </li>
+                        <li>
+                            <span class="item-text"><strong style="color:var(--ink);">Workflow setup.</strong> Ron personally maps your sales process to the platform.</span>
+                            <span class="item-value">$2,500</span>
+                        </li>
+                        <li>
+                            <span class="item-text"><strong style="color:var(--ink);">Priority Onboarding.</strong> White-glove from day one, no waiting.</span>
+                            <span class="item-value">$2,000</span>
+                        </li>
+                        <li>
+                            <span class="item-text"><strong style="color:var(--ink);">Ron Live.</strong> Bi-weekly office hours. Bring a live deal. Run it through ACTI-BLITZ together. Recordings shared with the Charter Twelve. <em style="color:var(--ink-mute);font-style:italic;">No DMs. No async. All signal.</em></span>
+                            <span class="item-value">$3,000</span>
+                        </li>
+                        <li>
+                            <span class="item-text"><strong style="color:var(--ink);">Strategy call</strong> with Ron Jackson. Pre-Charter 1:1 deep work.</span>
+                            <span class="item-value">$1,500</span>
+                        </li>
+                        <li>
+                            <span class="item-text"><strong style="color:var(--ink);">Roadmap Influence.</strong> Shape Phase 2 detection before it ships.</span>
+                            <span class="item-value soft">Co-creator status</span>
+                        </li>
+                        <li>
+                            <span class="item-text"><strong style="color:var(--ink);">Case-study priority.</strong> Your wins on the brand, featured proof.</span>
+                            <span class="item-value soft">Visibility + leverage</span>
+                        </li>
+                        <li>
+                            <span class="item-text"><strong style="color:var(--ink);">First access to ACTI-BLITZ AI, present and future.</strong> Phase 2, Phase 3, beyond.</span>
+                            <span class="item-value soft">Compounding advantage</span>
+                        </li>
                     </ul>
+                </div>
+
+                <div class="offer-value-total">
+                    <div class="row headline">
+                        <span>Total tangible value</span>
+                        <span class="v">$44,000+</span>
+                    </div>
+                    <div class="row">
+                        <span>Charter price</span>
+                        <span class="v">$5,000 one-time</span>
+                    </div>
+                    <div class="row net">
+                        <span>Effective Year-1 net cost</span>
+                        <span class="v">$0</span>
+                    </div>
+                </div>
+
+                <div class="offer-guarantee">
+                    <div class="head">The 30-day guarantee</div>
+                    <p class="promise">
+                        Thirty days. <strong>One detected state shift you would have missed.</strong> Or full refund. You keep the extension.
+                    </p>
+                    <p class="terms">
+                        We're confident enough in what ACTI-BLITZ detects to put the wire back if it doesn't earn its seat. The extension stays with you either way.
+                    </p>
+                </div>
+
+                <div class="offer-commitment">
+                    <div class="head">This is for closers who want to get better. Not feel good.</div>
+                    <p>Every AI sales tool you've seen tries to replace your intuition. <strong>Ours feeds it.</strong> We don't flatter. We detect. If you can't handle seeing your own misses, don't join. The Charter Twelve is for founders and closers who want the perception layer that makes them dangerous. Not the one that pretends to close for them.</p>
                 </div>
 
                 <a class="offer-cta"
                    href="https://buy.stripe.com/9B68wR5D8fj2fgPdKb8ww01"
                    target="_blank"
                    rel="noopener noreferrer">
-                    Become a Design Partner — $1,200
+                    Claim a Charter Seat · $5,000
                 </a>
 
                 <p class="offer-fineprint">
-                    One-time founding cohort price · Twelve seats total · Cohort closes when full or May 28, whichever comes first
+                    $5,000 one-time covers months 1–10 · $500/seat/month locked from month 11 forward · Twelve seats total · Charter closes when full or August 1, 2026, whichever comes first
                 </p>
             </div>
         </div>
@@ -1823,8 +2246,8 @@
 <section id="waitlist">
     <div class="wrap">
         <div class="waitlist">
-            <h3 class="h3">Not ready for the cohort?</h3>
-            <p>Join the waitlist. We'll send notice when general access opens, or when seats reopen between cohort phases.</p>
+            <h3 class="h3">Not ready for the Charter Twelve?</h3>
+            <p>Join the waitlist. We'll send notice when general access opens, or when seats reopen between Charter phases.</p>
 
             <form class="waitlist-form"
                   action="https://formspree.io/f/meopepal"
@@ -2011,14 +2434,14 @@
 
             '<div class="evidence">' +
                 '<div class="evidence-title">Evidence</div>' +
-                '<div class="evidence-item"><span class="evidence-bullet">→</span><span><em>"I\'m not even sure"</em> — uncertainty about the problem</span></div>' +
-                '<div class="evidence-item"><span class="evidence-bullet">→</span><span><em>"Things just feel chaotic"</em> — vague dissatisfaction</span></div>' +
-                '<div class="evidence-item"><span class="evidence-bullet">→</span><span><em>"I don\'t know what we\'re missing"</em> — can\'t name the solution</span></div>' +
+                '<div class="evidence-item"><span class="evidence-bullet">→</span><span><em>"I\'m not even sure"</em>. Uncertainty about the problem</span></div>' +
+                '<div class="evidence-item"><span class="evidence-bullet">→</span><span><em>"Things just feel chaotic"</em>. Vague dissatisfaction</span></div>' +
+                '<div class="evidence-item"><span class="evidence-bullet">→</span><span><em>"I don\'t know what we\'re missing"</em>. Can\'t name the solution</span></div>' +
             '</div>' +
 
             '<div class="closing">' +
                 '<div class="closing-title">Closing line · say this</div>' +
-                '<div class="closing-line">That \'chaotic\' feeling — I hear that from teams right before they realize their tools aren\'t actually talking to each other. Let me show you what unified visibility looks like. I think you\'ll recognize the problem the moment you see it solved.</div>' +
+                '<div class="closing-line">That \'chaotic\' feeling. I hear that from teams right before they realize their tools aren\'t actually talking to each other. Let me show you what unified visibility looks like. I think you\'ll recognize the problem the moment you see it solved.</div>' +
                 '<div class="why">' +
                     '<div class="why-label">Why this works</div>' +
                     '<div class="why-text">You\'re helping the buyer see and name a problem they couldn\'t articulate. When they recognize it, they advance on their own. You\'re selling <em>with</em> them, not <em>at</em> them.</div>' +

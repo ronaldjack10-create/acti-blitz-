@@ -1678,7 +1678,39 @@
 <section class="hero">
     <div class="wrap">
         <div class="hero-grid">
-            <div>
+            <div><!-- Top-right demo button -->
+<a href="#demo" class="hero-demo-btn">
+  <span class="hero-demo-btn__play" aria-hidden="true"></span>
+  Watch the live demo
+</a>
+<style>
+  .hero-demo-btn {
+    float: right;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 4px;
+    padding: 12px 22px;
+    background: var(--blue, #2C75FF);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 14px rgba(44,117,255,0.35);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .hero-demo-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(44,117,255,0.5);
+  }
+  .hero-demo-btn__play {
+    width: 0; height: 0;
+    border-left: 10px solid #ffffff;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+  }
+</style>
                 <div class="hero-eyebrow eyebrow">
                     <span class="dot" aria-hidden="true"></span>
                     <span>Perception layer for live B2B sales calls</span>

@@ -1724,7 +1724,38 @@
                         Join the waitlist
                     </a>
                 </div>
-
+<!-- Scroll cue to simulation -->
+<a href="#demo" class="scroll-cue">
+  <span class="scroll-cue__label">See it work · 60-second simulation</span>
+  <span class="scroll-cue__arrow" aria-hidden="true"></span>
+</a>
+<style>
+  html { scroll-behavior: smooth; }
+  .scroll-cue {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 28px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--ink, #1a2238);
+    cursor: pointer;
+  }
+  .scroll-cue__arrow {
+    width: 16px;
+    height: 16px;
+    border-right: 3px solid var(--gold, #C9A227);
+    border-bottom: 3px solid var(--gold, #C9A227);
+    transform: rotate(45deg);
+    animation: scroll-bounce 1.6s ease-in-out infinite;
+  }
+  @keyframes scroll-bounce {
+    0%, 100% { transform: translateY(0) rotate(45deg); }
+    50%      { transform: translateY(8px) rotate(45deg); }
+  }
+</style>
                 <!-- Visible scarcity (not fine print) -->
                 <div class="scarcity">
                     <span class="pulse" aria-hidden="true"></span>
